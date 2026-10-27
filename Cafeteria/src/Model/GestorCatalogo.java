@@ -1,4 +1,4 @@
-package com.cafeteria.modelo;
+package Model;
 
 import java.util.ArrayList;
 

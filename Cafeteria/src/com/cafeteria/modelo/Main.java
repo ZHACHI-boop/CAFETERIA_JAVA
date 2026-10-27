@@ -2,6 +2,10 @@ package com.cafeteria.modelo;
 
 import java.util.Scanner;
 
+import Model.GestorArchivo;
+import Model.GestorCatalogo;
+import Model.Producto;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

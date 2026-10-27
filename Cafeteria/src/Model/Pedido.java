@@ -1,4 +1,4 @@
-package com.cafeteria.modelo;
+package Model;
 
 public class Pedido {
     private String codigoProducto;
