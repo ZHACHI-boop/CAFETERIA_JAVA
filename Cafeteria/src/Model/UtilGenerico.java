@@ -18,7 +18,7 @@ public class UtilGenerico {
     public static <T> void mostrarElementos(ArrayList<T> lista) {
         if (lista != null) {
             for (T item : lista) {
-                System.out.println("[Elemento]: " + item.toString());
+                System.out.println("[Log Generico]: " + item.toString());
             }
         }
     }
