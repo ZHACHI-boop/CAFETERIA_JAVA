@@ -1,69 +1,67 @@
 package Model;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class GestorArchivo {
-    private final String ARCHIVO_PRODUCTOS = "productos.txt";
-    private final String ARCHIVO_VENTAS = "ventas.txt";
+    private File archivoProd;
+    private File archivoVentas;
 
-    public void cargarDatos(GestorCatalogo gestor) {
-
-        try {
-            File archivoP = new File(ARCHIVO_PRODUCTOS);
-            if (archivoP.exists()) {
-                Scanner lector = new Scanner(archivoP);
-                while (lector.hasNextLine()) {
-                    String linea = lector.nextLine();
-                    String[] partes = linea.split(",");
-                    if (partes.length == 4) {
-                        Producto p = new Producto(partes[0], partes[1], Double.parseDouble(partes[2]), Integer.parseInt(partes[3]));
-                        gestor.getListaProductos().add(p);
-                    }
-                }
-                lector.close();
-            }
-        } catch (Exception e) {
-            System.out.println("Error al cargar productos: " + e.getMessage());
-        }
-
-        try {
-            File archivoV = new File(ARCHIVO_VENTAS);
-            if (archivoV.exists()) {
-                Scanner lector = new Scanner(archivoV);
-                while (lector.hasNextLine()) {
-                    String linea = lector.nextLine();
-                    String[] partes = linea.split(",");
-                    if (partes.length == 4) {
-                        Pedido v = new Pedido(partes[0], partes[1], Integer.parseInt(partes[2]), Double.parseDouble(partes[3]));
-                        gestor.getListaVentas().add(v);
-                    }
-                }
-                lector.close();
-            }
-        } catch (Exception e) {
-            System.out.println("Error al cargar ventas: " + e.getMessage());
-        }
+    public GestorArchivo() {
+        archivoProd = new File("productos.txt");
+        archivoVentas = new File("ventas.txt");
     }
 
     public void guardarDatos(GestorCatalogo gestor) {
-
-        try (PrintWriter pw = new PrintWriter(new FileWriter(ARCHIVO_PRODUCTOS))) {
+        // Guardar productos
+        try (PrintWriter pw = new PrintWriter(archivoProd)) {
             for (Producto p : gestor.getListaProductos()) {
                 pw.println(p.toString());
             }
         } catch (Exception e) {
-            System.out.println("Error al guardar productos: " + e.getMessage());
+            e.printStackTrace();
         }
 
-        try (PrintWriter pw = new PrintWriter(new FileWriter(ARCHIVO_VENTAS))) {
+        // Guardar ventas
+        try (PrintWriter pw = new PrintWriter(archivoVentas)) {
             for (Pedido v : gestor.getListaVentas()) {
                 pw.println(v.toString());
             }
         } catch (Exception e) {
-            System.out.println("Error al guardar ventas: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void leerDatos(GestorCatalogo gestor) {
+        // Leer productos
+        if (archivoProd.exists()) {
+            try (Scanner scanner = new Scanner(archivoProd)) {
+                while (scanner.hasNextLine()) {
+                    String linea = scanner.nextLine();
+                    String[] p = linea.split(",");
+                    if (p.length == 4) {
+                        gestor.getListaProductos().add(new Producto(p[0], p[1], Double.parseDouble(p[2]), Integer.parseInt(p[3])));
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Leer ventas
+        if (archivoVentas.exists()) {
+            try (Scanner scanner = new Scanner(archivoVentas)) {
+                while (scanner.hasNextLine()) {
+                    String linea = scanner.nextLine();
+                    String[] v = linea.split(",");
+                    if (v.length == 4) {
+                        gestor.getListaVentas().add(new Pedido(v[0], v[1], Integer.parseInt(v[2]), Double.parseDouble(v[3])));
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
