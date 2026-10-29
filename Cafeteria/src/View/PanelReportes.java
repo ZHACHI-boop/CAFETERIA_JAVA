@@ -25,13 +25,11 @@ public class PanelReportes extends JFrame {
 	private JMenu mnSistema, mnCatalogo, mnPedidos, mnReportes, mnAyuda;
 	private JMenuItem mntmSalirSistema, mntmGestionCatalogo, mntmAtencionPedidos, mntmVerReportes, mntmAcercaDe;
 	
-	// Estructura de Tarjetas Superiores (Con etiquetas flotantes exactas a la imagen de estructura)
 	private JPanel panelGanancia, panelProductoTop, panelTransacciones;
 	private JLabel lblGananciaEtiqueta, lblGananciaValor;
 	private JLabel lblProductoTopEtiqueta, lblProductoTopValor;
 	private JLabel lblTransaccionesEtiqueta, lblTransaccionesValor;
 	
-	// Paneles Inferiores (Estructura exacta: Ranking a la izquierda, Reporte a la derecha)
 	private JPanel panelRanking, panelReporteDerecho;
 	private JLabel lblRankingTitulo, lblReporteTitulo;
 	private JTable tableRanking;
@@ -66,7 +64,6 @@ public class PanelReportes extends JFrame {
 		setBounds(100, 100, 900, 560);
 		setLocationRelativeTo(null);
 		
-		// --- BARRA DE MENU SUPERIOR ---
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -95,19 +92,16 @@ public class PanelReportes extends JFrame {
 		mntmAcercaDe = new JMenuItem("Acerca de");
 		mnAyuda.add(mntmAcercaDe);
 
-		// --- PANEL CONTENEDOR PRINCIPAL ---
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(248, 249, 250)); // Fondo limpio estilo tarjeta
+		contentPane.setBackground(new Color(248, 249, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// --- 1. TRES TARJETAS SUPERIORES (Estructura exacta con etiquetas flotantes azules) ---
 		int cardY = 15;
 		int cardH = 95;
 		int cardW = 275;
 
-		// Tarjeta 1: Ganancia Total
 		panelGanancia = new JPanel();
 		panelGanancia.setBackground(Color.WHITE);
 		panelGanancia.setBorder(new LineBorder(new Color(220, 224, 230), 1, true));
@@ -117,7 +111,7 @@ public class PanelReportes extends JFrame {
 
 		lblGananciaEtiqueta = new JLabel("GANANCIA TOTAL");
 		lblGananciaEtiqueta.setOpaque(true);
-		lblGananciaEtiqueta.setBackground(new Color(0, 123, 255)); // Azul corporativo
+		lblGananciaEtiqueta.setBackground(new Color(0, 123, 255));
 		lblGananciaEtiqueta.setForeground(Color.WHITE);
 		lblGananciaEtiqueta.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblGananciaEtiqueta.setHorizontalAlignment(JLabel.CENTER);
@@ -126,11 +120,10 @@ public class PanelReportes extends JFrame {
 
 		lblGananciaValor = new JLabel("$ 485.50");
 		lblGananciaValor.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblGananciaValor.setForeground(new Color(40, 167, 69)); // Verde financiero
+		lblGananciaValor.setForeground(new Color(40, 167, 69));
 		lblGananciaValor.setBounds(15, 45, 240, 30);
 		panelGanancia.add(lblGananciaValor);
 
-		// Tarjeta 2: Producto Más Vendido
 		panelProductoTop = new JPanel();
 		panelProductoTop.setBackground(Color.WHITE);
 		panelProductoTop.setBorder(new LineBorder(new Color(220, 224, 230), 1, true));
@@ -153,7 +146,6 @@ public class PanelReportes extends JFrame {
 		lblProductoTopValor.setBounds(15, 48, 240, 25);
 		panelProductoTop.add(lblProductoTopValor);
 
-		// Tarjeta 3: Total de Transacciones
 		panelTransacciones = new JPanel();
 		panelTransacciones.setBackground(Color.WHITE);
 		panelTransacciones.setBorder(new LineBorder(new Color(220, 224, 230), 1, true));
@@ -176,7 +168,6 @@ public class PanelReportes extends JFrame {
 		lblTransaccionesValor.setBounds(15, 45, 240, 30);
 		panelTransacciones.add(lblTransaccionesValor);
 
-		// --- 2. PANEL INFERIOR IZQUIERDO: RANKING DE DEMANDA ---
 		panelRanking = new JPanel();
 		panelRanking.setBackground(Color.WHITE);
 		panelRanking.setBorder(new LineBorder(new Color(220, 224, 230), 1, true));
@@ -186,17 +177,15 @@ public class PanelReportes extends JFrame {
 
 		lblRankingTitulo = new JLabel("RANKING DE DEMANDA");
 		lblRankingTitulo.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblRankingTitulo.setForeground(new Color(194, 59, 34)); // Tono cobre/naranja formal
+		lblRankingTitulo.setForeground(new Color(194, 59, 34));
 		lblRankingTitulo.setBounds(15, 15, 250, 20);
 		panelRanking.add(lblRankingTitulo);
 
-		// Tabla con diseño elegante
 		String[] columnasRanking = {"#", "Producto", "Unid. Vendidas"};
 		tableModel = new DefaultTableModel(columnasRanking, 0);
 		tableRanking = new JTable(tableModel);
 		tableRanking.setRowHeight(24);
 		
-		// Datos de ejemplo
 		tableModel.addRow(new Object[]{"1", "Cafe Americano", "64"});
 		tableModel.addRow(new Object[]{"2", "Empanada Queso", "42"});
 		tableModel.addRow(new Object[]{"3", "Sandwich Jamon", "31"});
@@ -205,7 +194,6 @@ public class PanelReportes extends JFrame {
 		scrollPaneRanking.setBounds(15, 50, 385, 295);
 		panelRanking.add(scrollPaneRanking);
 
-		// --- 3. PANEL INFERIOR DERECHO: REPORTE Y BOTÓN IMPRIMIR ---
 		panelReporteDerecho = new JPanel();
 		panelReporteDerecho.setBackground(Color.WHITE);
 		panelReporteDerecho.setBorder(new LineBorder(new Color(220, 224, 230), 1, true));
@@ -219,7 +207,6 @@ public class PanelReportes extends JFrame {
 		lblReporteTitulo.setBounds(15, 15, 200, 20);
 		panelReporteDerecho.add(lblReporteTitulo);
 
-		// Caja de texto del reporte (estructura exacta a la imagen)
 		txtAreaReporte = new JTextArea();
 		txtAreaReporte.setText(
 			"Resumen Ejecutivo del Sistema (v2.0)\n\n" +
@@ -237,7 +224,6 @@ public class PanelReportes extends JFrame {
 		scrollPaneReporte.setBounds(15, 50, 395, 225);
 		panelReporteDerecho.add(scrollPaneReporte);
 
-		// Botón inferior "Imprimir Reporte" con el estilo exacto azul corporativo
 		btnImprimirReporte = new JButton("Imprimir Reporte");
 		btnImprimirReporte.setBackground(new Color(0, 123, 255));
 		btnImprimirReporte.setForeground(Color.WHITE);
@@ -246,7 +232,6 @@ public class PanelReportes extends JFrame {
 		panelReporteDerecho.add(btnImprimirReporte);
 	}
 
-	// --- GETTERS PARA LOS CONTROLADORES ---
 	public JLabel getLblGananciaValor() { return lblGananciaValor; }
 	public JLabel getLblProductoTopValor() { return lblProductoTopValor; }
 	public JLabel getLblTransaccionesValor() { return lblTransaccionesValor; }

@@ -38,4 +38,7 @@ public class Producto {
     public String toString() {
         return codigo + "," + nombre + "," + precio + "," + stock;
     }
+    public String getCodeNombre() {
+        return codigo + " - " + nombre + " ($" + precio + ")";
+    }
 }

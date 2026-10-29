@@ -27,20 +27,17 @@ public class PanelPedidos extends JFrame {
 	private JMenu mnSistema, mnCatalogo, mnPedidos, mnReportes, mnAyuda;
 	private JMenuItem mntmSalirSistema, mntmGestionCatalogo, mntmAtencionPedidos, mntmVerReportes, mntmAcercaDe;
 	
-	// Componentes del Panel Izquierdo (Registro de Pedido)
 	private JPanel panelRegistro, panelResumen, panelTotales;
 	private JLabel lblRegTitulo, lblSelecProducto, lblCantPedida, lblStockDisp;
 	private JComboBox<String> cmbProductos;
 	private JTextField txtCantPedida, txtStockDisp;
 	private JButton btnAgregarPedido;
 	
-	// Componentes del Panel Derecho (Resumen y Tabla)
 	private JLabel lblResumenTitulo;
 	private JTable tableResumen;
 	private DefaultTableModel tableModel;
 	private JScrollPane scrollPane;
 	
-	// Etiquetas de Totales Financieros
 	private JLabel lblSubtotalTitulo, lblSubtotalValor;
 	private JLabel lblIvaTitulo, lblIvaValor;
 	private JLabel lblTotalTitulo, lblTotalValor;
@@ -71,7 +68,6 @@ public class PanelPedidos extends JFrame {
 		setBounds(100, 100, 880, 550);
 		setLocationRelativeTo(null);
 		
-		// --- BARRA DE MENU SUPERIOR ---
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -100,13 +96,11 @@ public class PanelPedidos extends JFrame {
 		mntmAcercaDe = new JMenuItem("Acerca de");
 		mnAyuda.add(mntmAcercaDe);
 
-		// --- PANEL CONTENEDOR PRINCIPAL ---
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// --- PANEL IZQUIERDO: REGISTRAR NUEVO PEDIDO ---
 		panelRegistro = new JPanel();
 		panelRegistro.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelRegistro.setBounds(15, 15, 340, 465);
@@ -156,7 +150,6 @@ public class PanelPedidos extends JFrame {
 		btnAgregarPedido.setBounds(15, 395, 310, 48);
 		panelRegistro.add(btnAgregarPedido);
 
-		// --- PANEL DERECHO: RESUMEN DE VENTA ACTUAL ---
 		panelResumen = new JPanel();
 		panelResumen.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelResumen.setBounds(375, 15, 475, 465);
@@ -168,7 +161,6 @@ public class PanelPedidos extends JFrame {
 		lblResumenTitulo.setBounds(15, 15, 250, 20);
 		panelResumen.add(lblResumenTitulo);
 
-		// Configuración de la Tabla de Resumen
 		String[] columnas = {"Cant.", "Producto", "P. Unitario", "P. Total"};
 		tableModel = new DefaultTableModel(columnas, 0);
 		tableResumen = new JTable(tableModel);
@@ -177,7 +169,6 @@ public class PanelPedidos extends JFrame {
 		scrollPane.setBounds(15, 50, 445, 210);
 		panelResumen.add(scrollPane);
 
-		// --- PANEL INFERIOR DERECHO: TOTALES FINANCIEROS ---
 		panelTotales = new JPanel();
 		panelTotales.setBorder(new LineBorder(new Color(200, 200, 200), 1, true));
 		panelTotales.setBounds(15, 275, 445, 105);
@@ -218,7 +209,6 @@ public class PanelPedidos extends JFrame {
 		lblTotalValor.setBounds(280, 68, 150, 20);
 		panelTotales.add(lblTotalValor);
 
-		// Botón de Finalizar y Cobrar Venta
 		btnFinalizarVenta = new JButton("Finalizar y Cobrar Venta");
 		btnFinalizarVenta.setBackground(new Color(0, 120, 215));
 		btnFinalizarVenta.setForeground(Color.WHITE);
@@ -227,7 +217,6 @@ public class PanelPedidos extends JFrame {
 		panelResumen.add(btnFinalizarVenta);
 	}
 
-	// --- GETTERS PARA LOS CONTROLADORES ---
 	public JComboBox<String> getCmbProductos() { return cmbProductos; }
 	public JTextField getTxtCantPedida() { return txtCantPedida; }
 	public JTextField getTxtStockDisp() { return txtStockDisp; }

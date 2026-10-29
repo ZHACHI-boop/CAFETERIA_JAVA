@@ -20,10 +20,8 @@ public class ControladorProductos {
         this.modelo = modelo;
         this.gestorArchivo = gestorArchivo;
 
-        // Cargar datos actuales en la JTable al iniciar la ventana
         actualizarTabla();
 
-        // Registrar escuchadores de eventos
         this.vista.getBtnGuardar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

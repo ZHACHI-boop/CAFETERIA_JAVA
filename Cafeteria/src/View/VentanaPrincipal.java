@@ -54,7 +54,6 @@ public class VentanaPrincipal extends JFrame {
 		setBounds(100, 100, 750, 500);
 		setLocationRelativeTo(null);
 		
-		// --- BARRA DE MENU SUPERIOR REAL (JMenuBar / JMenu) ---
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -83,17 +82,14 @@ public class VentanaPrincipal extends JFrame {
 		mntmAcercaDe = new JMenuItem("Acerca de");
 		mnAyuda.add(mntmAcercaDe);
 
-		// --- PANEL CONTENEDOR PRINCIPAL ---
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// --- SECCION DE TARJETAS DE METRICAS ---
 		int panelY = 15;
 		int panelH = 80;
 
-		// 1. Estado Sistema
 		panelEstadoSistema = new JPanel();
 		panelEstadoSistema.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelEstadoSistema.setBounds(20, panelY, 220, panelH);
@@ -115,7 +111,6 @@ public class VentanaPrincipal extends JFrame {
 		lblEstadoSistemaValor.setBounds(10, 40, 200, 25);
 		panelEstadoSistema.add(lblEstadoSistemaValor);
 
-		// 2. Productos Activos
 		panelProductosActivos = new JPanel();
 		panelProductosActivos.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelProductosActivos.setBounds(255, panelY, 220, panelH);
@@ -137,7 +132,6 @@ public class VentanaPrincipal extends JFrame {
 		lblProductosActivosValor.setBounds(10, 40, 200, 25);
 		panelProductosActivos.add(lblProductosActivosValor);
 
-		// 3. Cajero en Turno
 		panelCajero = new JPanel();
 		panelCajero.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelCajero.setBounds(490, panelY, 220, panelH);
@@ -159,7 +153,6 @@ public class VentanaPrincipal extends JFrame {
 		lblCajeroValor.setBounds(10, 40, 200, 25);
 		panelCajero.add(lblCajeroValor);
 
-		// --- SECCION DE NAVEGACION RAPIDA ---
 		panelNavegacionRapida = new JPanel();
 		panelNavegacionRapida.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelNavegacionRapida.setBounds(20, 115, 690, 305);
@@ -171,7 +164,6 @@ public class VentanaPrincipal extends JFrame {
 		lblNavRapidaTitulo.setBounds(15, 15, 200, 20);
 		panelNavegacionRapida.add(lblNavRapidaTitulo);
 
-		// Botones principales de navegacion rapida dentro del panel
 		btnModCatalogo = new JButton("Modulo de Catalogo y Stock");
 		btnModCatalogo.setBackground(new Color(0, 51, 255));
 		btnModCatalogo.setForeground(Color.WHITE);
@@ -194,7 +186,6 @@ public class VentanaPrincipal extends JFrame {
 		panelNavegacionRapida.add(btnModReportes);
 	}
 
-	// --- GETTERS PARA LOS CONTROLADORES ---
 	public JMenu getMnSistema() { return mnSistema; }
 	public JMenu getMnCatalogo() { return mnCatalogo; }
 	public JMenu getMnPedidos() { return mnPedidos; }

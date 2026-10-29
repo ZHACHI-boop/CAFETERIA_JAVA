@@ -1,2 +1,3 @@
-09,jugo,0.5,10
-01,manzana,0.2,37
+09,jugo,0.5,7
+01,manzana,0.2,86
+20,Sandwich,1.25,116

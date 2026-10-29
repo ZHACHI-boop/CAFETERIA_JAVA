@@ -25,15 +25,13 @@ public class PanelProductos extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu mnSistema, mnCatalogo, mnPedidos, mnReportes, mnAyuda;
 	private JMenuItem mntmSalirSistema, mntmGestionCatalogo, mntmAtencionPedidos, mntmVerReportes, mntmAcercaDe;
-	
-	// Componentes del Formulario
+
 	private JPanel panelFormulario, panelInventario;
 	private JLabel lblFormTitulo, lblCodigo, lblNombre, lblPrecio, lblStock;
 	private JTextField txtCodigo, txtNombre, txtPrecio;
 	private JSpinner spinnerStock;
 	private JButton btnGuardar, btnReponerStock;
 	
-	// Componentes de la Tabla de Inventario
 	private JLabel lblInventarioTitulo;
 	private JTable tableInventario;
 	private DefaultTableModel tableModel;
@@ -64,7 +62,6 @@ public class PanelProductos extends JFrame {
 		setBounds(100, 100, 850, 520);
 		setLocationRelativeTo(null);
 		
-		// --- BARRA DE MENU SUPERIOR ---
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -164,7 +161,6 @@ public class PanelProductos extends JFrame {
 		btnReponerStock.setBounds(165, 300, 150, 45);
 		panelFormulario.add(btnReponerStock);
 
-		// --- PANEL DERECHO: INVENTARIO ACTUAL ---
 		panelInventario = new JPanel();
 		panelInventario.setBorder(new LineBorder(new Color(150, 150, 150), 1, true));
 		panelInventario.setBounds(365, 15, 455, 430);
@@ -186,7 +182,6 @@ public class PanelProductos extends JFrame {
 		panelInventario.add(scrollPane);
 	}
 
-	// --- GETTERS PARA LOS CONTROLADORES ---
 	public JTextField getTxtCodigo() { return txtCodigo; }
 	public JTextField getTxtNombre() { return txtNombre; }
 	public JTextField getTxtPrecio() { return txtPrecio; }
